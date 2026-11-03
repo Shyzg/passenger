@@ -1,0 +1,21 @@
+<!-- @dsCard group="Kursi" height=170 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TripHeader</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  return h('div', { className: 'ps-demo ps-demo--stack' },
+    h(P.TripHeader, { seat: '2-1', onLeave: function () {} }),
+    h(P.TripHeader, { seat: '3-2', name: 'Rani', onLeave: function () {} }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"Passenger","components":[{"name":"Icon"},{"name":"Button"},{"name":"Artwork"},{"name":"NowPlaying"},{"name":"TransportControls"},{"name":"VolumeStepper"},{"name":"TrackRow"},{"name":"SearchField"},{"name":"SeatTag"},{"name":"SeatPicker"},{"name":"TripNotice"},{"name":"SettingSwitch"},{"name":"JoinCard"}]} */
+/* @ds-bundle: {"format":4,"namespace":"Passenger","components":[{"name":"Icon"},{"name":"Button"},{"name":"Artwork"},{"name":"NowPlaying"},{"name":"TransportControls"},{"name":"VolumeStepper"},{"name":"TrackRow"},{"name":"SearchField"},{"name":"TextField"},{"name":"SeatTag"},{"name":"SeatPicker"},{"name":"TripHeader"},{"name":"TripNotice"},{"name":"SettingSwitch"},{"name":"PendingPassenger"},{"name":"JoinCard"}]} */
 /* Passenger components: one classic script. Needs window.React 18; assigns window.Passenger. */
 (function () {
   'use strict';
@@ -216,6 +216,16 @@
         })));
   }
 
+  /* ---------- TripHeader: the top of every passenger screen, your seat and the way out ---------- */
+
+  function TripHeader(props) {
+    return h('header', { className: cx('ps-trip', props.className) },
+      h('p', { className: 'ps-trip__seat' },
+        h('span', { className: 'ps-vh' }, 'Kursimu: '),
+        h(SeatTag, { seat: props.seat, name: props.name, layout: props.layout, driverSide: props.driverSide })),
+      props.onLeave ? h(Button, { variant: 'ghost', icon: 'leave', onClick: props.onLeave }, props.leaveLabel || 'Turun') : null);
+  }
+
   /* ---------- Player ---------- */
 
   function NowPlaying(props) {
@@ -339,6 +349,22 @@
         h(Icon, { name: 'close', size: 20 }), h('span', { className: 'ps-vh' }, 'Hapus pencarian')) : null);
   }
 
+  /* ---------- TextField: a square input for short answers; 17px so iOS Safari does not zoom ---------- */
+
+  function TextField(props) {
+    var hintId = props.hint ? props.id + '-hint' : undefined;
+    return h('div', { className: cx('ps-field', props.className) },
+      h('label', { className: 'ps-field__label label', htmlFor: props.id }, props.label),
+      h('input', {
+        id: props.id, className: 'ps-field__input', type: props.type || 'text',
+        value: props.value == null ? '' : props.value, placeholder: props.placeholder,
+        maxLength: props.maxLength, autoComplete: props.autoComplete || 'off', enterKeyHint: props.enterKeyHint,
+        readOnly: !props.onChange, 'aria-describedby': hintId,
+        onChange: props.onChange ? function (e) { props.onChange(e.target.value); } : undefined
+      }),
+      props.hint ? h('p', { id: hintId, className: 'ps-field__hint meta' }, props.hint) : null);
+  }
+
   /* ---------- Trip status and driver settings ---------- */
 
   var NOTICE_PRESETS = {
@@ -378,6 +404,19 @@
       }));
   }
 
+  /* ---------- PendingPassenger: one passenger waiting for the driver, decided while the car is stopped ---------- */
+
+  function PendingPassenger(props) {
+    var layout = props.layout || DEFAULT_LAYOUT;
+    // the visible word is short; screen readers hear who it is for
+    var who = ' ' + (props.name || seatLabel(props.seat, layout, props.driverSide));
+    return h('div', { className: cx('ps-pending', props.className) },
+      h(SeatTag, { seat: props.seat, name: props.name, layout: layout, driverSide: props.driverSide }),
+      h('span', { className: 'ps-pending__actions' },
+        props.onDecline ? h(Button, { variant: 'ghost', onClick: props.onDecline }, 'Tolak', h('span', { className: 'ps-vh' }, who)) : null,
+        h(Button, { onClick: props.onApprove }, 'Setujui', h('span', { className: 'ps-vh' }, who))));
+  }
+
   /* ---------- JoinCard: the printed card in the car, ID-1 size, always printed in Siang ---------- */
 
   function JoinCard(props) {
@@ -397,6 +436,7 @@
     Icon: Icon, Button: Button, Artwork: Artwork, NowPlaying: NowPlaying, TransportControls: TransportControls,
     VolumeStepper: VolumeStepper, TrackRow: TrackRow, SearchField: SearchField, SeatTag: SeatTag,
     SeatPicker: SeatPicker, TripNotice: TripNotice, SettingSwitch: SettingSwitch, JoinCard: JoinCard,
+    TextField: TextField, TripHeader: TripHeader, PendingPassenger: PendingPassenger,
     formatDuration: formatDuration, seatLabel: seatLabel, iconNames: Object.keys(ICONS)
   };
   window.Passenger = Object.assign(window.Passenger || {}, api);

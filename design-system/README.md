@@ -80,7 +80,7 @@ Passenger adalah web app untuk penumpang di mobil pribadi. Penumpang memindai ko
 
 ## Kursi
 
-- Penumpang dikenali dari kursinya, bukan dari akun. Saat naik, penumpang memilih kursi di SeatPicker dan boleh menambahkan nama panggilan.
+- Penumpang dikenali dari kursinya, bukan dari akun. Saat naik, penumpang memilih kursi di SeatPicker dan boleh menambahkan nama panggilan lewat TextField. Di layar penumpang, TripHeader menampilkan kursinya beserta tombol Turun.
 - Kursi ditulis "baris-kolom": baris 1 di depan, dan kolom 1 di kiri bila mobil dilihat dari atas menghadap ke depan. Default-nya `[2, 3, 2]`, MPV tujuh kursi yang paling umum di Indonesia; sedan memakai `[2, 3]`.
 - Mobil Indonesia bersetir kanan, jadi pengemudi duduk di `1-2` dan penumpang depan di `1-1`.
 
@@ -88,7 +88,7 @@ Passenger adalah web app untuk penumpang di mobil pribadi. Penumpang memindai ko
 
 - Mobil berisi satu kartu ID-1 (85,6 × 53,98 mm) dengan kode QR dan tag NFC yang memuat URL yang sama (JoinCard). Cetak dalam tema Siang dengan skala 100%.
 - Kode QR memakai koreksi galat Q dan zona sepi 4 modul, sisinya minimal 25 mm, dan modulnya gelap di atas dasar terang.
-- Isi kartu tidak pernah berubah, jadi halaman naik hanya memberi kontrol selama perjalanan aktif; di luar itu, tampilkan `no-trip`. Bila persetujuan penumpang dinyalakan, pengemudi menyetujui saat mobil berhenti, dan penumpang yang naik di tengah jalan menunggu dengan status `waiting`.
+- Isi kartu tidak pernah berubah, jadi halaman naik hanya memberi kontrol selama perjalanan aktif; di luar itu, tampilkan `no-trip`. Bila persetujuan penumpang dinyalakan, pengemudi menyetujui atau menolak tiap penumpang lewat PendingPassenger saat mobil berhenti, dan penumpang yang naik di tengah jalan menunggu dengan status `waiting`.
 
 ## Memakai sistem ini
 

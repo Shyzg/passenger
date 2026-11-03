@@ -1,22 +1,34 @@
 {
   "v": 3,
   "layout": "files",
-  "createdOnFiles": { "v": 1, "at": "2026-11-03T05:57:29Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-03T05:57:29Z"
+  },
   "title": "Passenger",
   "namespace": "Passenger",
   "libraries": [
-    { "name": "react", "version": "18" },
-    { "name": "react-dom", "version": "18" }
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
   ],
   "sections": {},
   "groups": [],
   "assetGroups": {},
   "blobs": {},
-  "docs": { "readme": "project/README.md", "sections": [] },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
   "lastChange": {
     "by": "Al Jarreau Arman Maulana",
-    "at": "2026-11-03T05:57:29Z",
+    "at": "2026-11-03T10:13:55Z",
     "via": "Claude Code",
-    "note": "Sistem awal: token Malam dan Siang, 13 komponen, sampul."
+    "note": "Tambah TextField, TripHeader dan PendingPassenger (Setujui dan Tolak)."
   }
 }
