@@ -1,0 +1,31 @@
+<!-- @dsCard group="Dasar" height=280 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Button</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+var row = { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 'var(--space-4)' };
+function App() {
+  return h('div', { className: 'ps-demo ps-demo--stack' },
+    h('div', { style: row },
+      h(P.Button, { variant: 'primary', icon: 'queue-add' }, 'Tambah ke antrean'),
+      h(P.Button, null, 'Pilih kursi lain'),
+      h(P.Button, { variant: 'ghost', icon: 'back' }, 'Kembali')),
+    h('div', { style: row },
+      h(P.Button, { variant: 'primary', size: 'lg', icon: 'car' }, 'Mulai perjalanan'),
+      h(P.Button, { variant: 'danger', size: 'lg', icon: 'leave' }, 'Akhiri perjalanan')),
+    h('div', { style: row },
+      h(P.Button, { iconOnly: true, icon: 'previous', size: 'lg' }, 'Lagu sebelumnya'),
+      h(P.Button, { iconOnly: true, icon: 'play', size: 'hero', variant: 'primary' }, 'Putar'),
+      h(P.Button, { iconOnly: true, icon: 'next', size: 'lg', disabled: true }, 'Lewati')));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

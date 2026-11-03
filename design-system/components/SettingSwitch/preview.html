@@ -1,0 +1,26 @@
+<!-- @dsCard group="Status dan pengaturan" height=380 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SettingSwitch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var s = React.useState({ skip: true, pause: false, volume: false, approve: true }), v = s[0], setV = s[1];
+  function set(k) { return function (on) { var n = Object.assign({}, v); n[k] = on; setV(n); }; }
+  return h('div', { className: 'ps-demo ps-demo--stack', style: { maxWidth: '520px', gap: 0 } },
+    h('h3', { className: 'section', style: { margin: '0 0 var(--space-2)', color: 'var(--ink)' } }, 'Izin penumpang'),
+    h(P.SettingSwitch, { id: 'izin-lewati', label: 'Boleh melewati lagu', description: 'Tombol lewati dan sebelumnya.', checked: v.skip, onChange: set('skip') }),
+    h(P.SettingSwitch, { id: 'izin-jeda', label: 'Boleh menjeda', description: 'Tombol putar dan jeda.', checked: v.pause, onChange: set('pause') }),
+    h(P.SettingSwitch, { id: 'izin-volume', label: 'Boleh mengatur volume', description: 'Hanya muncul jika pemutar di mobil mendukung.', checked: v.volume, onChange: set('volume') }),
+    h(P.SettingSwitch, { id: 'izin-setujui', label: 'Setujui penumpang baru', description: 'Penumpang menunggu sampai kamu setujui saat mobil berhenti.', checked: v.approve, onChange: set('approve') }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

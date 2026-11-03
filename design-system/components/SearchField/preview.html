@@ -1,0 +1,23 @@
+<!-- @dsCard group="Antrean dan cari" height=200 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SearchField</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var a = React.useState('tol mal'), q = a[0], setQ = a[1];
+  var b = React.useState(''), q2 = b[0], setQ2 = b[1];
+  return h('div', { className: 'ps-demo ps-demo--stack', style: { maxWidth: '480px' } },
+    h(P.SearchField, { id: 'cari-1', value: q, onChange: setQ, onClear: function () { setQ(''); } }),
+    h(P.SearchField, { id: 'cari-2', value: q2, onChange: setQ2, onClear: function () { setQ2(''); } }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

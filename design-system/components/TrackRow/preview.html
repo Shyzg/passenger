@@ -1,0 +1,32 @@
+<!-- @dsCard group="Antrean dan cari" height=640 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TrackRow</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var s = React.useState('idle'), st = s[0], setSt = s[1];
+  function add() { setSt('adding'); setTimeout(function () { setSt('added'); }, 900); }
+  var heading = { margin: 0, color: 'var(--ink)' };
+  return h('div', { className: 'ps-demo ps-demo--stack', style: { maxWidth: '560px' } },
+    h('h3', { className: 'section', style: heading }, 'Antrean'),
+    h('ol', { className: 'ps-list' },
+      h('li', null, h(P.TrackRow, { status: 'playing', title: 'Hujan di Kaca Depan', artist: 'Kota Pelan', durationMs: 228000, artTone: 'amber', addedBy: { seat: '2-1', name: 'Rani' } })),
+      h('li', null, h(P.TrackRow, { position: 1, title: 'Tol Malam', artist: 'Lintas Selatan', durationMs: 252000, addedBy: { seat: '1-1' } })),
+      h('li', null, h(P.TrackRow, { position: 2, title: 'Rest Area KM 57', artist: 'Rombongan Minggu', durationMs: 185000, explicit: true, artTone: 'signal', addedBy: { seat: '3-2', name: 'Bima' } })),
+      h('li', null, h(P.TrackRow, { position: 3, title: 'Lampu Kuning', artist: 'Teman Duduk', durationMs: 177000 }))),
+    h('h3', { className: 'section', style: heading }, 'Hasil pencarian'),
+    h('ul', { className: 'ps-list' },
+      h('li', null, h(P.TrackRow, { title: 'Sabuk Pengaman', artist: 'Lintas Selatan', durationMs: 211000, status: st, onAdd: add })),
+      h('li', null, h(P.TrackRow, { title: 'Pulang Lewat Pantura', artist: 'Kota Pelan', durationMs: 280000, status: 'added', artTone: 'signal' }))));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

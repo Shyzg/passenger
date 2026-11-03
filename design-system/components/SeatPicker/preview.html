@@ -1,0 +1,24 @@
+<!-- @dsCard group="Kursi" height=440 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>SeatPicker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var s = React.useState('2-3'), seat = s[0], setSeat = s[1];
+  return h('div', { className: 'ps-demo', style: { alignItems: 'flex-start', gap: 'var(--space-8)' } },
+    h(P.SeatPicker, { value: seat, onChange: setSeat, taken: { '1-1': 'Dewi', '2-1': 'Rani', '3-2': '' } }),
+    h('div', { style: { display: 'grid', gap: 'var(--space-2)', alignContent: 'start', paddingTop: 'var(--space-8)' } },
+      h('p', { className: 'meta ps-demo__note' }, 'Kursi terpilih'),
+      h(P.SeatTag, { seat: seat })));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
