@@ -1,0 +1,61 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Passenger</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--cabin); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  /* the composition: a 480-wide box on the right half of the 960 layout, clear of the name */
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .amber { fill: var(--amber); }
+  .ink { fill: var(--ink); }
+  .signal { fill: var(--signal); }
+  .seat { fill: var(--line-strong); }
+  .tile { rx: var(--radius-card); }
+  /* backrest pills are space-2 tall: rx = half = radius-art-sm */
+  .back { rx: var(--radius-art-sm); }
+  .words { position: absolute; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-display); font-size: 80px; line-height: 0.92; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+  .tag { margin: var(--space-2) 0 0 2px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      amber 160x224 bled off the top (the dashboard lamp, largest) / ink 160x80 under it, bled off the bottom / seat tiles 72x48: amber for your seat, signal for a passenger who joined, ink for the driver, the rest line-strong; about 26% of 960x288
+  arrangement one tall amber slab over a short ink block, then the 2-3-2 plan of a seven-seat MPV seen from above, driver at front right because Indonesian cars are right-hand drive
+  pattern     seats, from "Penumpang dikenali dari kursinya" and SeatPicker: 7 cushion tiles at radius-card plus 7 backrest pills, so the plan reads as seats and not as a grid
+  scales      tile 72 = 3 x space-6, 48 = tap-min; column gap space-8, row gap space-6, backrest 56x8 one space-2 below its tile; slab gap space-4, slab to seats space-6; corners radius-card, pills radius-art-sm (half of space-2)
+-->
+<rect class="amber tile" x="16" y="-16" width="160" height="224" rx="12"/>
+<rect class="ink tile" x="16" y="224" width="160" height="80" rx="12"/>
+<rect class="amber tile" x="200" y="24" width="72" height="48" rx="12"/>
+<rect class="amber back" x="208" y="80" width="56" height="8" rx="4"/>
+<rect class="ink tile" x="408" y="24" width="72" height="48" rx="12"/>
+<rect class="ink back" x="416" y="80" width="56" height="8" rx="4"/>
+<rect class="seat tile" x="200" y="112" width="72" height="48" rx="12"/>
+<rect class="seat back" x="208" y="168" width="56" height="8" rx="4"/>
+<rect class="signal tile" x="304" y="112" width="72" height="48" rx="12"/>
+<rect class="signal back" x="312" y="168" width="56" height="8" rx="4"/>
+<rect class="seat tile" x="408" y="112" width="72" height="48" rx="12"/>
+<rect class="seat back" x="416" y="168" width="56" height="8" rx="4"/>
+<rect class="seat tile" x="200" y="200" width="72" height="48" rx="12"/>
+<rect class="seat back" x="208" y="256" width="56" height="8" rx="4"/>
+<rect class="seat tile" x="408" y="200" width="72" height="48" rx="12"/>
+<rect class="seat back" x="416" y="256" width="56" height="8" rx="4"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Passenger</h1>
+<p class="tag">Penumpang memilih lagu, pengemudi tetap fokus.</p>
+</div>
+</div>
+</body>
+</html>

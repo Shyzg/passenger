@@ -1,0 +1,26 @@
+<!-- @dsCard group="Pemutar" height=780 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>NowPlaying</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var s = React.useState(true), playing = s[0], setPlaying = s[1];
+  return h('div', { className: 'ps-demo' },
+    h(P.NowPlaying, {
+      track: { title: 'Hujan di Kaca Depan', artist: 'Kota Pelan', album: 'Jalur Pulang', durationMs: 228000 },
+      progressMs: 84000, isPlaying: playing, artTone: 'amber',
+      addedBy: { seat: '2-1', name: 'Rani' },
+      attribution: 'Tempat logo resmi Spotify dan tautan ke lagu ini.'
+    }, h(P.TransportControls, { isPlaying: playing, onPlayPause: function () { setPlaying(!playing); } })));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

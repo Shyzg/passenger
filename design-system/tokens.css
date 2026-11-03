@@ -1,0 +1,70 @@
+/* Generated from tokens.json by scripts/build-tokens.mjs. Do not edit by hand. */
+:root, [data-theme="dark"] {
+  --cabin: #0e141d;
+  --cabin-raised: #172130;
+  --cabin-high: #223047;
+  --line: #243246;
+  --line-strong: #71849e;
+  --ink: #ece7dc;
+  --ink-muted: #9eabbd;
+  --amber: #ffb547;
+  --meter: var(--amber);
+  --amber-text: #ffb547;
+  --amber-soft: #3b2a0f;
+  --on-amber: #1a1206;
+  --signal: #6cc4ff;
+  --signal-soft: #10283c;
+  --stop: #ff8a7a;
+  --stop-soft: #3d1916;
+  --focus: #ffb547;
+  --shadow-raised: inset 0 1px 0 #ffffff12, 0 8px 24px #00000099;
+  --focus-ring: 0 0 0 2px #0e141d, 0 0 0 4px #ffb547;
+}
+[data-theme="light"] {
+  --cabin: #eef1f5;
+  --cabin-raised: #ffffff;
+  --cabin-high: #dfe5ec;
+  --line: #d3dae3;
+  --line-strong: #6f7c8e;
+  --ink: #0e141d;
+  --ink-muted: #4a5668;
+  --amber: #f5a524;
+  --meter: var(--amber-text);
+  --amber-text: #8a5200;
+  --amber-soft: #fcefd6;
+  --on-amber: #1a1206;
+  --signal: #0a62a0;
+  --signal-soft: #e2f0fb;
+  --stop: #b3261e;
+  --stop-soft: #fbe7e5;
+  --focus: #0e141d;
+  --shadow-raised: 0 1px 2px #0e141d14, 0 8px 24px #0e141d1f;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #0e141d;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-art-sm: 4px;
+  --radius-art-lg: 8px;
+  --radius-card: 12px;
+  --radius-pill: 9999px;
+  --tap-min: 48px;
+  --tap-drive: 64px;
+  --tap-hero: 80px;
+  --art-row: 48px;
+  --art-hero: 320px;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+.hero { font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.005em; }
+.track-title { font-family: var(--font-display); font-size: 30px; line-height: 34px; font-weight: 600; }
+.section { font-family: var(--font-display); font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: 0.01em; }
+.code { font-family: var(--font-display); font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: 0.12em; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 24px; font-weight: 400; }
+.row-title { font-family: var(--font-sans); font-size: 17px; line-height: 22px; font-weight: 600; }
+.meta { font-family: var(--font-sans); font-size: 15px; line-height: 20px; font-weight: 500; }
+.label { font-family: var(--font-sans); font-size: 13px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; }

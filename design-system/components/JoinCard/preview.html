@@ -1,0 +1,32 @@
+<!-- @dsCard group="Di mobil" height=280 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>JoinCard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+var P = window.Passenger, h = React.createElement;
+function qrNode(text) {
+  if (typeof window.qrcode !== 'function') return null; // the card then shows its empty QR box
+  var qr = window.qrcode(0, 'Q'); qr.addData(text); qr.make();
+  var n = qr.getModuleCount(), q = 4, side = n + 2 * q, d = '';
+  for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) if (qr.isDark(r, c)) d += 'M' + (c + q) + ' ' + (r + q) + 'h1v1h-1z';
+  return h('svg', { viewBox: '0 0 ' + side + ' ' + side, role: 'img', 'aria-label': 'Kode QR ke ' + text, shapeRendering: 'crispEdges' },
+    h('rect', { width: side, height: side, style: { fill: 'var(--cabin-raised)' } }),
+    h('path', { d: d, style: { fill: 'var(--ink)' } }));
+}
+function App() {
+  return h('div', { className: 'ps-demo' },
+    h(P.JoinCard, { qr: qrNode('https://passenger.example/naik'), url: 'passenger.example/naik', code: 'PSG 4821' }),
+    h('p', { className: 'ps-demo__note meta', style: { maxWidth: '34ch' } },
+      'Ukuran asli kartu ID-1, 85,6 × 53,98 mm. Kode QR dan tag NFC berisi URL yang sama.'));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

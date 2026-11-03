@@ -1,0 +1,23 @@
+<!-- @dsCard group="Dasar" height=260 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Artwork</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  return h('div', { className: 'ps-demo' },
+    h(P.Artwork, {}), h(P.Artwork, { tone: 'amber' }), h(P.Artwork, { tone: 'signal' }),
+    h('div', { style: { width: '176px' } }, h(P.Artwork, { size: 'hero', tone: 'amber', alt: 'Sampul album Jalur Pulang' })),
+    h('p', { className: 'ps-demo__note meta', style: { flexBasis: '100%' } },
+      'Ubin tanpa sampul: lagu lokal atau gambar yang sedang dimuat. Dengan src, sampul Spotify tampil utuh.'));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- @dsCard group="Pemutar" height=260 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TransportControls</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+var col = { display: 'grid', justifyItems: 'center', gap: 'var(--space-3)', minWidth: '260px' };
+var cap = { margin: 0, color: 'var(--ink-muted)', textTransform: 'uppercase' };
+function App() {
+  var s = React.useState(false), playing = s[0], setPlaying = s[1];
+  return h('div', { className: 'ps-demo', style: { alignItems: 'flex-start', justifyContent: 'space-around' } },
+    h('div', { style: col }, h('p', { className: 'label', style: cap }, 'Semua boleh'),
+      h(P.TransportControls, { isPlaying: playing, onPlayPause: function () { setPlaying(!playing); } })),
+    h('div', { style: col }, h('p', { className: 'label', style: cap }, 'Lewati dikunci'),
+      h(P.TransportControls, { isPlaying: true, locked: ['next', 'previous'] })));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
