@@ -1,0 +1,23 @@
+<!-- @dsCard group="Status dan pengaturan" height=200 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PendingPassenger</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var noop = function () {};
+  return h('div', { className: 'ps-demo ps-demo--stack' },
+    h('div', null,
+      h(P.PendingPassenger, { seat: '3-2', name: 'Rani', onApprove: noop, onDecline: noop }),
+      h(P.PendingPassenger, { seat: '3-1', onApprove: noop, onDecline: noop })));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>

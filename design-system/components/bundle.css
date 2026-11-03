@@ -107,6 +107,14 @@ body { margin: 0; background: var(--cabin); color: var(--ink); font-family: var(
 .ps-search__clear { position: absolute; right: var(--space-1); display: grid; place-items: center; width: var(--tap-min); height: var(--tap-min); padding: 0; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--ink-muted); cursor: pointer; }
 .ps-search__clear:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
 
+/* TextField: square (radius-art-lg) so it never reads as the pill-shaped SearchField */
+.ps-field { display: grid; gap: var(--space-2); }
+.ps-field__label { color: var(--ink-muted); text-transform: uppercase; }
+.ps-field__input { -webkit-appearance: none; appearance: none; box-sizing: border-box; width: 100%; height: calc(var(--tap-min) + var(--space-2)); margin: 0; padding: 0 var(--space-4); border: 1px solid var(--line-strong); border-radius: var(--radius-art-lg); background: var(--cabin-raised); color: var(--ink); font-family: var(--font-sans); font-size: 17px; line-height: 24px; }
+.ps-field__input::placeholder { color: var(--ink-muted); opacity: 1; }
+.ps-field__input:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+.ps-field__hint { margin: 0; color: var(--ink-muted); }
+
 /* SeatTag */
 .ps-seat-tag { display: inline-flex; align-items: center; gap: var(--space-2); max-width: 100%; min-height: 32px; padding: 0 var(--space-3) 0 var(--space-2); box-sizing: border-box; border-radius: var(--radius-pill); background: var(--cabin-high); color: var(--ink); vertical-align: middle; }
 .ps-seat-tag--sm { min-height: 28px; gap: 6px; padding: 0 10px 0 8px; }
@@ -131,6 +139,10 @@ body { margin: 0; background: var(--cabin); color: var(--ink); font-family: var(
 .ps-seat.is-taken { background: transparent; border-style: dashed; color: var(--ink-muted); cursor: not-allowed; }
 .ps-seat.is-driver { background: var(--cabin); border-color: var(--line); color: var(--ink-muted); cursor: not-allowed; }
 @media (hover: hover) { .ps-seat:not(.is-taken):not(.is-driver):not(.is-selected):hover { border-color: var(--ink); } }
+
+/* TripHeader */
+.ps-trip { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--tap-min); }
+.ps-trip__seat { display: flex; min-width: 0; margin: 0; }
 
 /* TripNotice: tone shows in the ground and the icon; the words always say it too */
 .ps-notice { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); box-sizing: border-box; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--cabin-raised); color: var(--ink); }
@@ -157,6 +169,12 @@ body { margin: 0; background: var(--cabin); color: var(--ink); font-family: var(
 .ps-switch:checked { border-color: var(--meter); background: var(--meter); }
 .ps-switch:checked::before { transform: translateX(20px); background: var(--cabin-raised); }
 .ps-switch:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+
+/* PendingPassenger: the driver's approval row; stack several with a line between */
+.ps-pending { display: flex; align-items: center; gap: var(--space-3); min-height: var(--tap-drive); padding-block: var(--space-3); box-sizing: border-box; }
+.ps-pending .ps-seat-tag { flex: 0 1 auto; min-width: 0; }
+.ps-pending__actions { display: flex; flex: none; gap: var(--space-2); margin-left: auto; }
+.ps-pending + .ps-pending { border-top: 1px solid var(--line); }
 
 /* JoinCard: real ID-1 size in mm, so it prints at 85.6 x 53.98 mm at 100% */
 .ps-join { display: flex; align-items: center; gap: 4mm; box-sizing: border-box; width: 85.6mm; height: 53.98mm; margin: 0; padding: 4mm; overflow: hidden; border-radius: 3.18mm; background: var(--cabin-raised); color: var(--ink); box-shadow: var(--shadow-raised); font-family: var(--font-sans); }

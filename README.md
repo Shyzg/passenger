@@ -11,7 +11,7 @@ Folder [`design-system/`](design-system/) berisi design system Passenger:
   - tipe props di `index.d.ts`
   - panduan per komponen di `components/<Komponen>/README.md`
 
-Sumber utamanya adalah artifact Design System "Passenger" di claude.ai (privat): <https://claude.ai/artifact/MW9gFUXBwsBXUV4vAgwf3n>. Folder ini adalah salinan versi `1793685500-dd1e` (3 November 2026), dengan jalur yang sama seperti folder `project/` di artifact. Ubah desainnya di artifact, lalu perbarui salinan ini.
+Sumber utamanya adalah artifact Design System "Passenger" di claude.ai (privat): <https://claude.ai/artifact/MW9gFUXBwsBXUV4vAgwf3n>. Folder ini adalah salinan versi `1793700947-cd95` (3 November 2026), dengan jalur yang sama seperti folder `project/` di artifact. Ubah desainnya di artifact, lalu perbarui salinan ini.
 
 ### Memakai
 

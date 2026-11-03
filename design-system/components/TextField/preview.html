@@ -1,0 +1,22 @@
+<!-- @dsCard group="Dasar" height=260 -->
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>TextField</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<div id="root"></div>
+<script>
+var P = window.Passenger, h = React.createElement;
+function App() {
+  var s = React.useState('Rani'), name = s[0], setName = s[1];
+  return h('div', { className: 'ps-demo ps-demo--stack' },
+    h(P.TextField, { id: 'nickname', label: 'Nama panggilan', placeholder: 'Misalnya Rani', hint: 'Boleh dikosongkan. Nama ini muncul di antrean.', maxLength: 20 }),
+    h(P.TextField, { id: 'nickname-filled', label: 'Nama panggilan', value: name, onChange: setName, maxLength: 20 }));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
